@@ -188,11 +188,18 @@ public class LinearArray {
      */
     public static boolean insert(int [] arr, int size, int elem, int index){
         boolean value = true;
-        if(size >= arr.length){
+        /** array index out of bound solution **/
+        if(size < arr.length && index < arr.length){
             System.out.println("No space left");
             value = false;
         }
-        if(size <= arr.length && index < arr.length){
+        /** array element not found **/
+        else if(size < arr.length && index > arr.length){
+            System.out.println("Invalid Index");
+            value = false;
+        }
+        /** insertion in array**/
+        else if(size <= arr.length && index < arr.length){
             for (int i = (arr.length-1); i>=0; i--) {
                 int temp = arr[arr.length-1];
                 if(i==index){
@@ -208,6 +215,7 @@ public class LinearArray {
             System.out.println("Number of elements after insertion: "+ arr.length);
             value = true;
         }
+
         return value; // remove this line
     }
 

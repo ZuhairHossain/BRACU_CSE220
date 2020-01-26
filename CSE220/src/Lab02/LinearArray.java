@@ -61,14 +61,14 @@ public class LinearArray {
         printArray(c); // This Should Print: { 10, 20, 70, 30, 40, 50, 70 }
         System.out.println("\n///// TEST 11: Remove example 1 /////");
         printArray(c); // This Should Print: { 10, 20, 70, 30, 40, 50, 70 }
-//        bol=removeAll(c,7,90);
-//        System.out.println(bol); // This Should Print: false
-//        printArray(c); // This Should Print: { 10, 20, 70, 30, 40, 50, 70 }
-//        System.out.println("\n///// TEST 12: Remove example 2 /////");
-//        printArray(c);  // This Should Print: { 10, 20, 70, 30, 40, 50, 70 }
-//        bol=removeAll(c,7,70);
-//        System.out.println(bol); // This Should Print: true
-//        printArray(c);  // This Should Print: { 10, 20, 30, 40, 50, 0, 0 }
+        bol=removeAll(c,7,90);
+        System.out.println(bol); // This Should Print: false
+        printArray(c); // This Should Print: { 10, 20, 70, 30, 40, 50, 70 }
+        System.out.println("\n///// TEST 12: Remove example 2 /////");
+        printArray(c);  // This Should Print: { 10, 20, 70, 30, 40, 50, 70 }
+        bol=removeAll(c,7,70);
+        System.out.println(bol); // This Should Print: true
+        printArray(c);  // This Should Print: { 10, 20, 30, 40, 50, 0, 0 }
 
 
 
@@ -216,27 +216,21 @@ public class LinearArray {
          * @return true if removal is successful; return false otherwise
          * if removal is successful, print the 'Number of elements after removal' is completed
          **/
-//    public static boolean removeAll(int [] arr, int size, int elem){
-//        boolean value = false;
-//        if(size > arr.length){
-//            value = false;
-//        }
-//        else {
-//            /** index searching **/
-//            int index=0;
-//            for (int i = 0; i < arr.length;i++) {
-//                if(arr[i]==elem) {
-//                    index = i;
-//                    break;
-//                }
-//            }
-//            /**removing elements from array **/
-//            for (int i = index + 1; i < size; i++) {
-//                if(size)arr[i-1] = arr[i];
-//            }
-//            value = true;
-//        }
-//        return value;
-//    }
-
+        public static boolean removeAll(int [] arr, int size, int elem){
+            int temp=size;
+            for(int i=0;i<arr.length;i++){
+                if(elem==arr[i]){
+                    for(int j=i;j<arr.length-1;j++){
+                        arr[j]=arr[j+1];
+                    }
+                    arr[size-1]=0;
+                    size--;
+                }
+            }
+            if(temp==size){
+                return false;
+            }else{
+                return true;
+            }
+        }
 }

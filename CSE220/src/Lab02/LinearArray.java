@@ -18,59 +18,58 @@ public class LinearArray {
         printArray(b); // This Should Print: { 60, 50, 40, 30, 20, 10 }
 
 
-
         System.out.println("\n///// TEST 04: Shift Left k cell example /////");
         b = copyArray(a, a.length);
-        b=shiftLeft(b,3);
+        b = shiftLeft(b, 3);
         printArray(b); // This Should Print: { 40, 50, 60, 0, 0, 0 }
 
         System.out.println("\n///// TEST 05: Rotate Left k cell example /////");
         b = copyArray(a, a.length);
         printArray(b); // This Should Print: { 10, 20, 30, 40, 50, 60 }
-        b=rotateLeft(b,3);
+        b = rotateLeft(b, 3);
         printArray(b); // This Should Print: { 40, 50, 60, 10, 20, 30 }
 
         System.out.println("\n///// TEST 06: Shift Right k cell example /////");
         b = copyArray(a, a.length);
         printArray(b); // This Should Print: { 10, 20, 30, 40, 50, 60 }
-        b=shiftRight(b,3);
+        b = shiftRight(b, 3);
         printArray(b);  // This Should Print: { 0, 0, 0, 10, 20, 30 }
 
         System.out.println("\n///// TEST 07: Rotate Right k cell example /////");
         b = copyArray(a, a.length);
         printArray(b); // This Should Print: { 10, 20, 30, 40, 50, 60 }
-        b=rotateRight(b,3);
+        b = rotateRight(b, 3);
         printArray(b); // This Should Print: { 40, 50, 60, 10, 20, 30 }
 
 
         System.out.println("\n///// TEST 08: Insert example 1 /////");
         b = copyArray(a, a.length);
         printArray(b);  // This Should Print: { 10, 20, 30, 40, 50, 60 }
-        boolean bol=insert(b,6, 70, 2); // This Should Print: No space Left
+        boolean bol = insert(b, 6, 70, 2); // This Should Print: No space Left
         System.out.println(bol); // This Should Print: false
         printArray(b);  // This Should Print: { 10, 20, 30, 40, 50, 60 }
         System.out.println("\n///// TEST 09: Insert example 2 /////");
-        int [] c = {10, 20, 30, 40, 50, 0, 0};
+        int[] c = {10, 20, 30, 40, 50, 0, 0};
         printArray(c);  // This Should Print: { 10, 20, 30, 40, 50, 0, 0 }
-        bol=insert(c,5, 70, 2);  // This Should Print: Number of elements after insertion: 6
+        bol = insert(c, 5, 70, 2);  // This Should Print: Number of elements after insertion: 6
         System.out.println(bol); // This Should Print: true
         printArray(c); // This Should Print: { 10, 20, 70, 30, 40, 50, 0 }
         System.out.println("\n///// TEST 10: Insert example 3 /////");
         printArray(c); // This Should Print: { 10, 20, 70, 30, 40, 50, 0 }
-/*        bol=insert(c,6, 70, 6); // This Should Print: Number of elements after insertion: 7
+        bol=insert(c,6, 70, 6); // This Should Print: Number of elements after insertion: 7
         System.out.println(bol); // This Should Print: true
         printArray(c); // This Should Print: { 10, 20, 70, 30, 40, 50, 70 }
         System.out.println("\n///// TEST 11: Remove example 1 /////");
         printArray(c); // This Should Print: { 10, 20, 70, 30, 40, 50, 70 }
-        bol=removeAll(c,7,90);
-        System.out.println(bol); // This Should Print: false
-        printArray(c); // This Should Print: { 10, 20, 70, 30, 40, 50, 70 }
-        System.out.println("\n///// TEST 12: Remove example 2 /////");
-        printArray(c);  // This Should Print: { 10, 20, 70, 30, 40, 50, 70 }
-        bol=removeAll(c,7,70);
-        System.out.println(bol); // This Should Print: true
-        printArray(c);  // This Should Print: { 10, 20, 30, 40, 50, 0, 0 }
-*/
+//        bol=removeAll(c,7,90);
+//        System.out.println(bol); // This Should Print: false
+//        printArray(c); // This Should Print: { 10, 20, 70, 30, 40, 50, 70 }
+//        System.out.println("\n///// TEST 12: Remove example 2 /////");
+//        printArray(c);  // This Should Print: { 10, 20, 70, 30, 40, 50, 70 }
+//        bol=removeAll(c,7,70);
+//        System.out.println(bol); // This Should Print: true
+//        printArray(c);  // This Should Print: { 10, 20, 30, 40, 50, 0, 0 }
+
 
 
     }
@@ -121,39 +120,37 @@ public class LinearArray {
     // Returns the updated array
 
     public static int[] shiftLeft(int[] source, int k) {
-        for (int i = k,j=0; j < source.length; i++,j++) {
-            if(j>=k){
-                source[j]=0;
-            }
-            else
-                source[j]=source[i];
+        for (int i = k, j = 0; j < source.length; i++, j++) {
+            if (j >= k) {
+                source[j] = 0;
+            } else
+                source[j] = source[i];
         }
         return source;
     }
 
     // Rotates all the elements of the source array to the left by 'k' positions
     // Returns the updated array
-    public static int [] rotateLeft(int [] source, int k){
-        int a=0;
+    public static int[] rotateLeft(int[] source, int k) {
+        int a = 0;
         int arr[] = copyArray(source, source.length);
-        for (int i = k,j=0; j < source.length; i++,j++) {
-            if(j>=k){
-                source[j]=arr[a];
+        for (int i = k, j = 0; j < source.length; i++, j++) {
+            if (j >= k) {
+                source[j] = arr[a];
                 a++;
-            }
-            else
-                source[j]=source[i];
+            } else
+                source[j] = source[i];
         }
         return source;
     }
 
     // Shifts all the elements of the source array to the right by 'k' positions
     // Returns the updated array
-    public static int [] shiftRight(int [] source, int k){
+    public static int[] shiftRight(int[] source, int k) {
         //int a=0;
-        for (int i = (source.length-1); i >= 0; i--){
-            if(i >=k)
-            source[i] = source[i-k];
+        for (int i = (source.length - 1); i >= 0; i--) {
+            if (i >= k)
+                source[i] = source[i - k];
             else
                 source[i] = 0;
         }
@@ -162,34 +159,34 @@ public class LinearArray {
 
     // Rotates all the elements of the source array to the right by 'k' positions
     // Returns the updated array
-    public static int [] rotateRight(int [] source, int k){
-        int a=0;
+    public static int[] rotateRight(int[] source, int k) {
+        int a = 0;
         int arr[] = copyArray(source, source.length);
-        for (int i = k,j=0; j < source.length; i++,j++) {
-            if(j>=k){
-                source[j]=arr[a];
+        for (int i = k, j = 0; j < source.length; i++, j++) {
+            if (j >= k) {
+                source[j] = arr[a];
                 a++;
-            }
-            else
-                source[j]=source[i];
+            } else
+                source[j] = source[i];
         }
         return source;
     }
 
 
-    /** @return true if insertion is successful; @return false otherwise
-     * @param arr the reference to the linear array
-     * @param size the number of elements that exists in the array. size<=arr.length
-     * @param elem the element that is to be inserted
+    /**
+     * @param arr   the reference to the linear array
+     * @param size  the number of elements that exists in the array. size<=arr.length
+     * @param elem  the element that is to be inserted
      * @param index the index in which the element is required to be inserted
      * if insertion is not successful due to lack space, print "No space Left"
      * if given index is invalid, print "Invalid Index"
      * if insertion is successful, print the 'Number of elements after insertion' is completed
+     * @return true if insertion is successful; @return false otherwise
      */
     public static boolean insert(int [] arr, int size, int elem, int index){
         boolean value = true;
         /** array index out of bound solution **/
-        if(size < arr.length && index < arr.length){
+        if(size > arr.length && index < arr.length){
             System.out.println("No space left");
             value = false;
         }
@@ -200,37 +197,46 @@ public class LinearArray {
         }
         /** insertion in array**/
         else if(size <= arr.length && index < arr.length){
-            for (int i = (arr.length-1); i>=0; i--) {
-                int temp = arr[arr.length-1];
-                if(i==index){
-                    arr[i] = elem;
-                }
-                else if(i==0){
-                    arr[i] = temp;
-                }
-                else{
-                    arr[i] = arr[i-1];
-                }
+            for (int i = (arr.length-1); i > index; i--) {
+                arr[i] = arr[i-1];
             }
-            System.out.println("Number of elements after insertion: "+ arr.length);
+            arr[index] = elem;
+            System.out.println("Number of elements after insertion: "+ (size+1));
             value = true;
         }
 
         return value; // remove this line
     }
 
-     /**
-     * removes all the occurences of the given element
-     * @param arr the reference to the linear array
-     * @param size the number of elements that exists in the array. size<=arr.length
-     * @param elem the element to be removed
-     * @return true if removal is successful; return false otherwise
-     * if removal is successful, print the 'Number of elements after removal' is completed
-     **/
-/*    public static boolean removeAll(int [] arr, int size, int elem){
-        // TO DO
-        return false; // remove this line
-    }*/
-
+        /**
+         * removes all the occurrences of the given element
+         * @param arr the reference to the linear array
+         * @param size the number of elements that exists in the array. size<=arr.length
+         * @param elem the element to be removed
+         * @return true if removal is successful; return false otherwise
+         * if removal is successful, print the 'Number of elements after removal' is completed
+         **/
+//    public static boolean removeAll(int [] arr, int size, int elem){
+//        boolean value = false;
+//        if(size > arr.length){
+//            value = false;
+//        }
+//        else {
+//            /** index searching **/
+//            int index=0;
+//            for (int i = 0; i < arr.length;i++) {
+//                if(arr[i]==elem) {
+//                    index = i;
+//                    break;
+//                }
+//            }
+//            /**removing elements from array **/
+//            for (int i = index + 1; i < size; i++) {
+//                if(size)arr[i-1] = arr[i];
+//            }
+//            value = true;
+//        }
+//        return value;
+//    }
 
 }

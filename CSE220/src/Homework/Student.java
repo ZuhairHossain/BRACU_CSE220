@@ -43,7 +43,8 @@ public class Student{
             courses[i] = course;
             i++;
             return true;
-        }else{
+        }
+        else{
             System.out.println("Cannot add more courses");
             return false;
         }

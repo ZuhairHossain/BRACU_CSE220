@@ -92,14 +92,19 @@ public class StudentOps extends Student {
         String id = k.next();
 
         // search for that student using the id
-        dropCourse(id);
-        // TO DO
+        for (int i = 0; i < s; i++) {
+            if(id.equals(st[i].getId())){
+                index = i;
+                break;
+        }
+        }
+
 
         if (index != -1){
             // if index is not -1, this means the id entered is valid
             // delete that object using left shift
             dropCourse(id);
-            // TO DO
+            
             System.out.println("Deleted Successfully");
             display();
         }else{
@@ -120,7 +125,7 @@ public class StudentOps extends Student {
                 break;
             }
         }
-        // TO DO
+
         if (index != -1){
             System.out.println("What piece of information do you want to edit?");
             System.out.println("Press 1 to edit Id");
@@ -157,6 +162,5 @@ public class StudentOps extends Student {
         for (int i = 0; i < st.length; i++) {
             a[i] = st[i];
         }
-        // TO DO
     }
 }

@@ -1,8 +1,10 @@
 package Assignment05;
-
+import java.util.Scanner;
 public class Task02 {
     public static void main(String[] args) {
-        int X= 1573 % 35; //33
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Please enter last 4 digit of your id");
+        int X= sc.nextInt() % 35; //33
         int [] cir = {X+7, X+8, 0, 0, 0, X+1, X+2, X+3, X+4, X+5, X+6};
         // 40 41 0 0 0 34 35 36 37 38 39
         print(cir,5,11);

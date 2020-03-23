@@ -2,10 +2,9 @@ package Assignment07.task01;
 import java.util.*;
 class BinarySearch {
     Scanner sc=new Scanner(System.in);
-    // Returns index of x if it is present in arr[l..
-    // r], else return -1
+    static int sum=0;
+    // Returns index of x if it is present in arr[l..r], else return -1
     int RecursiveBinarySearch(int arr[], int l, int r, int x) {
-
         if (r >= l) {
             int mid = l + (r - l) / 2;
 
@@ -23,7 +22,6 @@ class BinarySearch {
             // in right subarray
             return RecursiveBinarySearch(arr, mid + 1, r, x);
         }
-
         // We reach here when element is not present
         // in array
         return -1;
@@ -54,11 +52,10 @@ class BinarySearch {
         return -1;
     }
 
-    public int sumValues(int arr[],int n) {
-        int sum=0;
-        for (int i = 0; i <= n-1; i++) {
-            sum+=arr[i];
-        }
-        return sum;
+    public static int sumValues(int arr[],int n) {
+        if (n<=0)
+            return sum;
+
+        return arr[n-1]+sumValues(arr,n-1);
     }
 }
